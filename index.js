@@ -1,6 +1,5 @@
 const express = require("express");
 const http = require('http');
-const fs = require('fs');
 const bodyParser = require('body-parser');
 const processor = require('./webhook-handler');
 

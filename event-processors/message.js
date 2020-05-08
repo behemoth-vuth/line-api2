@@ -1,5 +1,6 @@
 const request = require('request-promise');
 const line = require('@line/bot-sdk');
+const fs = require('fs');
 
 const config = {
   channelAccessToken: 'I1C99yaC4mqGqwbqtA4g5GnAgH4KpnEi/dh+X07JFsqpnY9OrNrAZm0Bkkrfa8ddcbj5T+Gvve4HhePrVnJ5Ia/zUPsGgmBvSaX1n15MVpZJPFsni4c076FnADbHCJjAEBAEG3yqUtt+LYQpKFoVFAdB04t89/1O/w1cDnyilFU=',
