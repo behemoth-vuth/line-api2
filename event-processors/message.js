@@ -50,7 +50,7 @@ const processTextMessage = (event) => {
   const replyForTextMessages = [
     {
       type: 'text',
-      text: 'Here is the reply if you sent text',
+      text: 'You send me: ' + text,
     },
   ];
 
