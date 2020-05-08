@@ -9,12 +9,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const options = {
-  key: fs.readFileSync('certificates/localhost-key.pem'),
-  cert: fs.readFileSync('certificates/localhost.pem')
-};
-
-server = https.createServer(options, app);
+server = https.createServer(app);
 
 app.get("/", (req, res) => {
   res.send(req.query)
