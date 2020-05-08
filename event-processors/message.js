@@ -47,25 +47,29 @@ const processImageMessage = (event) => {
     });
 };
 
-const processTextMessage = (event) => {
+const processTextMessage = async (event) => {
   const { text } = event.message;
   console.log(`The message is ${text}`);
 
   if (text == "richmenu") {
-    client.setRichMenuImage("richmenu-08f6b603051c5f22e92d02332c2f59eb", fs.createReadStream('./no6_close.png'))
-      .then((response) => {
-        console.log(response);
-        return Promise.resolve([{
-          type: 'text',
-          text: "Image set!",
-        }]);
-      })
-      .catch((error) => {
-        return Promise.resolve([{
-          type: 'text',
-          text: error.message
-        }]);
-      });
+    try {
+      const response = await client.setRichMenuImage(
+        "richmenu-08f6b603051c5f22e92d02332c2f59eb",
+        fs.createReadStream('./no6_close.png'));
+
+      console.log(response);
+
+      return Promise.resolve([{
+        type: 'text',
+        text: "Image set!",
+      }]);
+    }
+    catch (err) {
+      return Promise.resolve([{
+        type: 'text',
+        text: err.message
+      }]);
+    }
   }
 
   // Here you may need to process the event based on the text content
