@@ -12,7 +12,8 @@ app.use(bodyParser.json());
 server = https.createServer(app);
 
 app.get("/", (req, res) => {
-  res.send(req.query)
+  console.log(req)
+  res.send("OK")
   // res.sendFile("index.html", { root: __dirname });
 });
 
