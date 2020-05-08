@@ -52,11 +52,19 @@ const processTextMessage = (event) => {
   console.log(`The message is ${text}`);
 
   if (text == "richmenu") {
-    client.setRichMenuImage("richmenu-08f6b603051c5f22e92d02332c2f59eb", fs.createReadStream('./no6_close.png'));
-    return Promise.resolve({
-      type: 'text',
-      text: "Image setted!",
-    });
+    try {
+      client.setRichMenuImage("richmenu-08f6b603051c5f22e92d02332c2f59eb", fs.createReadStream('./no6_close.png'));
+      return Promise.resolve({
+        type: 'text',
+        text: "Image set!",
+      });
+    }
+    catch (err) {
+      return Promise.resolve({
+        type: 'text',
+        text: err.message
+      });
+    }
   }
 
   // Here you may need to process the event based on the text content
